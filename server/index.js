@@ -12,7 +12,37 @@ app.get('/details/:propertyId', (req, res) => {
       res.send(details.data);
     })
     .catch((err) => {
-      console.log(err);
+      res.send(err);
+    });
+});
+
+app.get('/checkoutInformation/:propertyId', (req, res) => {
+  axios.get(`http://localhost:3004/checkoutInformation/${req.params.propertyId}/`)
+    .then((details) => {
+      res.send(details.data);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
+app.get('/:listingID/reviews', (req, res) => {
+  axios.get(`http://localhost:3006/${req.params.listingID}/reviews`)
+    .then((details) => {
+      res.send(details.data);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
+app.get('/:propertyId/averageReviewsRating', (req, res) => {
+  axios.get(`http://localhost:3006/${req.params.propertyId}/averageReviewsRating/`)
+    .then((details) => {
+      res.send(details.data);
+    })
+    .catch((err) => {
+      res.send(err);
     });
 });
 
