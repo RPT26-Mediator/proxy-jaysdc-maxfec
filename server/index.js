@@ -47,7 +47,7 @@ app.get('/:propertyId/averageReviewsRating', (req, res) => {
 });
 
 app.get('/photos/:propertyId', (req, res) => {
-  axios.get(`http://localhost:7676/photos/${req.params.propertyId}`)
+  axios.get(`http://localhost:3002/photos/${req.params.propertyId}`)
     .then((details) => {
       res.send(details.data);
     })
