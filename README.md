@@ -1,19 +1,23 @@
-# Project Name
+# Airbnb Proxy
 
-> Project description
+>
 
 ## Related Projects
-
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+### Proxy Server
+  - https://github.com/rpt26-fec-phoenix/max-proxy
+### Services
+  - https://github.com/rpt26-fec-phoenix/alex-checkout-calendar-component
+  - https://github.com/rpt26-fec-phoenix/nelson-reviews
+  - https://github.com/rpt26-fec-phoenix/Jason-photos
+  - https://github.com/rpt26-fec-phoenix/nelson-host-information
 
 ## Table of Contents
 
-1. [Usage](#Usage)
 1. [Requirements](#requirements)
+1. [Installation](#installation)
 1. [Development](#development)
+1. [Deployment](#deployment)
+1. [Technology](#technology)
 
 ## Usage
 
@@ -21,19 +25,31 @@
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
 - Node 6.13.0
-- etc
+- Docker
+
+## Installation
+```sh
+npm install
+```
 
 ## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
 ```sh
-npm install -g webpack
-npm install
+npm server-dev
+```
+
+## Deployment
+### Build a new local image
+```sh
+npm run docker:build
+```
+### Push the image to Docker Hub
+```sh
+docker push maxmilpro/proxy
+```
+
+### Run a local container
+```sh
+npm run docker:run
 ```
 
