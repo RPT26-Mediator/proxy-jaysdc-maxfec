@@ -1,0 +1,35 @@
+config:
+  target: "http://localhost:3000"
+  http:
+    pool: 200
+    maxSockets: 5
+    timeout: 59
+  phases:
+    - duration: 200
+      arrivalCount: 20000
+      maxVusers: 20000
+      name: 200 seconds, 20,000 max users
+
+scenarios:
+  - name: "10 gets per user"
+    flow:
+      - get:
+          url: "/1/reviews"
+      - get:
+          url: "/2/reviews"
+      - get:
+          url: "/3/reviews"
+      - get:
+          url: "/4/reviews"
+      - get:
+          url: "/5/reviews"
+      - get:
+          url: "/6/reviews"
+      - get:
+          url: "/7/reviews"
+      - get:
+          url: "/8/reviews"
+      - get:
+          url: "/9/reviews"
+      - get:
+          url: "/10/reviews"
