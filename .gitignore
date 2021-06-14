@@ -6,6 +6,8 @@ npm
 npm-debug.log
 node_modules/
 
+./k6script.js
+
 pids
 *.pid
 logs
@@ -23,4 +25,5 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+newrelic.js
 

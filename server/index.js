@@ -4,6 +4,10 @@ const express = require('express');
 const app = express();
 const port = 3003;
 
+app.get('/', (req, res) => {
+  res.sendStatus(200);
+});
+
 app.use('/:propertyId', express.static(path.join(__dirname, '../public')));
 
 app.get('/details/:propertyId', (req, res) => {
@@ -40,6 +44,7 @@ app.get('/:listingID/reviews', (req, res) => {
   var tempUrl = ``
   var originalUrl = `http://3.101.105.128:3006/${req.params.listingID}/reviews`
   axios.get(`http://3.101.105.128:3006/${req.params.listingID}/reviews`)
+  axios.get(`http://localhost:3006/${req.params.listingID}/reviews`)
     .then((details) => {
       res.send(details.data);
     })
@@ -94,6 +99,7 @@ app.get('/:listingID/host', (req, res) => {
     });
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Proxy running at http://localhost:${port}/1/`);
 });
+server.keepAliveTimeout = 61 * 1000;
