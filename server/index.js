@@ -41,10 +41,9 @@ app.get('/checkoutInformation/:propertyId', (req, res) => {
 
 app.get('/:listingID/reviews', (req, res) => {
   // jays url
-  var tempUrl = ``
+  var tempUrl = `http://54.215.44.35:80/${req.params.listingID}/reviews`
   var originalUrl = `http://3.101.105.128:3006/${req.params.listingID}/reviews`
-  axios.get(`http://3.101.105.128:3006/${req.params.listingID}/reviews`)
-  axios.get(`http://localhost:3006/${req.params.listingID}/reviews`)
+  axios.get(tempUrl)
     .then((details) => {
       res.send(details.data);
     })
@@ -56,10 +55,10 @@ app.get('/:listingID/reviews', (req, res) => {
 app.get('/:propertyId/averageReviewsRating', (req, res) => {
 
   // jay url
-  var tempUrl = ``
+  var tempUrl = `http://54.215.44.35:80/${req.params.propertyId}/averageReviewsRating/`
   var originalUrl = `http://3.101.105.128:3006/${req.params.propertyId}/averageReviewsRating/`
 
-  axios.get(`http://3.101.105.128:3006/${req.params.propertyId}/averageReviewsRating/`)
+  axios.get(tempUrl)
     .then((details) => {
       res.send(details.data);
     })
@@ -87,10 +86,10 @@ app.get('/:listingID/host', (req, res) => {
 
   // vinay url
 
-  var tempUrl = ``
+  var tempUrl = `http://http://3.129.55.10/${req.params.listingID}/host`
   var originalUrl = `http://13.57.41.115:3007/${req.params.listingID}/host`
 
-  axios.get(`http://13.57.41.115:3007/${req.params.listingID}/host`)
+  axios.get(tempUrl)
     .then((host) => {
       res.send(host.data);
     }).catch((error) => {
