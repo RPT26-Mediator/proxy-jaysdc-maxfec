@@ -2,7 +2,7 @@ const path = require('path');
 const axios = require('axios');
 const express = require('express');
 const app = express();
-const port = 3003;
+const port = 3000;
 
 //app.get('/', (req, res) => {
 //  res.sendStatus(200);
@@ -13,6 +13,42 @@ app.get('/loaderio-e563c336e1acaa6bdd73a425e558c600.txt', (req, res) => {
 
 app.use('/:propertyId', express.static(path.join(__dirname, '../public')));
 
+app.get('/:listingID/0.reviewBundle.js', (req, res) => {
+  axios.get(`http://localhost:3006/${req.params.listingID}/0.reviewBundle.js`)
+    .then((bundleResponse) => {
+      res.send(bundleResponse.data);
+    })
+    .catch((err) => {
+      console.error('Error in app.get/:listingID/0.reviewBundle.js: ', err);
+    })
+});
+app.get('/:listingID/1.reviewBundle.js', (req, res) => {
+  axios.get(`http://localhost:3006/${req.params.listingID}/1.reviewBundle.js`)
+    .then((bundleResponse) => {
+      res.send(bundleResponse.data);
+    })
+    .catch((err) => {
+      console.error('Error in app.get/:listingID/1.reviewBundle.js: ', err);
+    })
+});
+app.get('/:listingID/2.reviewBundle.js', (req, res) => {
+  axios.get(`http://localhost:3006/${req.params.listingID}/2.reviewBundle.js`)
+    .then((bundleResponse) => {
+      res.send(bundleResponse.data);
+    })
+    .catch((err) => {
+      console.error('Error in app.get/:listingID/2.reviewBundle.js: ', err);
+    })
+});
+app.get('/:listingID/3.reviewBundle.js', (req, res) => {
+  axios.get(`http://localhost:3006/${req.params.listingID}/3.reviewBundle.js`)
+    .then((bundleResponse) => {
+      res.send(bundleResponse.data);
+    })
+    .catch((err) => {
+      console.error('Error in app.get/:listingID/3.reviewBundle.js: ', err);
+    })
+});
 
 app.get('/details/:propertyId', (req, res) => {
 
