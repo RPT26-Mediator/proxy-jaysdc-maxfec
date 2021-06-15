@@ -6,8 +6,6 @@ npm
 npm-debug.log
 node_modules/
 
-./k6script.js
-
 pids
 *.pid
 logs

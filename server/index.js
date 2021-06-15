@@ -28,7 +28,7 @@ app.get('/checkoutInformation/:propertyId', (req, res) => {
   // my url
     var id = req.params.propertyId
     console.log('id ->', id)
-    var tempUrl = `http://13.56.251.49:3000/checkoutInformation/${id}/`
+    var tempUrl = `http://52.53.225.72:3000/checkoutInformation/${id}/`
     var originalUrl = `http://3.16.113.225/checkoutInformation/${id}/`
     axios.get(tempUrl)
     .then((details) => {

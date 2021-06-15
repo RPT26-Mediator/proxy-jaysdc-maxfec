@@ -11,6 +11,8 @@
     "server-dev": "nodemon server/index.js",
     "start": "nodemon server/index.js",
     "docker:build": "docker build --tag maxmilpro/proxy .",
+    "gage-k6": "k6 run gage-k6scipt.js --out csv=gage-k6-test.csv",
+    "jay-k6": "k6 run jay-k6script.js  --out csv=jay-k6-test.csv",
     "docker:run": "docker run -d -p 3000:3000 --name proxy maxmilpro/proxy",
     "ssh": "ssh -i '~/Downloads/proxy.pem' ec2-user@ec2-18-222-131-36.us-east-2.compute.amazonaws.com"
   },
