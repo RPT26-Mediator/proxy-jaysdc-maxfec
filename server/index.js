@@ -64,10 +64,10 @@ app.get('/details/:propertyId', (req, res) => {
 });
 
 app.get('/checkoutInformation/:propertyId', (req, res) => {
-  console.log('entering  -> checkoutInformation' )
+  // console.log('entering  -> checkoutInformation' )
   // my url
     var id = req.params.propertyId
-    console.log('id ->', id)
+    // console.log('id ->', id)
     var tempUrl = `http://52.53.225.72:3000/checkoutInformation/${id}/`
     var originalUrl = `http://3.16.113.225/checkoutInformation/${id}/`
     axios.get(tempUrl)
@@ -132,8 +132,8 @@ app.get('/:listingID/host', (req, res) => {
   axios.get(tempUrl)
     .then((host) => {
       res.send(host.data);
-    }).catch((error) => {
-      console.log(error);
+    }).catch((err) => {
+      console.error('Error in app.get/:listingID/host: ', err);
       res.send(error);
     });
 });
