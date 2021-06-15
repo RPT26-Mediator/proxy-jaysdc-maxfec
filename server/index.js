@@ -2,8 +2,7 @@ const path = require('path');
 const axios = require('axios');
 const express = require('express');
 const app = express();
-const port = 3000;
-const newRelic = require('newrelic');
+const port = 3003;
 
 //app.get('/', (req, res) => {
 //  res.sendStatus(200);
@@ -16,6 +15,9 @@ app.use('/:propertyId', express.static(path.join(__dirname, '../public')));
 
 
 app.get('/details/:propertyId', (req, res) => {
+
+  var tempUrl = ``
+  var originalUrl = `http://3.142.136.159/details/${req.params.propertyId}`
   axios.get(`http://3.142.136.159/details/${req.params.propertyId}`)
     .then((details) => {
       res.send(details.data);
@@ -26,7 +28,13 @@ app.get('/details/:propertyId', (req, res) => {
 });
 
 app.get('/checkoutInformation/:propertyId', (req, res) => {
-  axios.get(`http://3.16.113.225/checkoutInformation/${req.params.propertyId}/`)
+  console.log('entering  -> checkoutInformation' )
+  // my url
+    var id = req.params.propertyId
+    console.log('id ->', id)
+    var tempUrl = `http://52.53.225.72:3000/checkoutInformation/${id}/`
+    var originalUrl = `http://3.16.113.225/checkoutInformation/${id}/`
+    axios.get(tempUrl)
     .then((details) => {
       res.send(details.data);
     })
@@ -36,7 +44,10 @@ app.get('/checkoutInformation/:propertyId', (req, res) => {
 });
 
 app.get('/:listingID/reviews', (req, res) => {
-  axios.get(`http://localhost:3006/${req.params.listingID}/reviews`)
+  // jays url
+  var tempUrl = `http://54.215.44.35:80/${req.params.listingID}/reviews`
+  var originalUrl = `http://3.101.105.128:3006/${req.params.listingID}/reviews`
+  axios.get(tempUrl)
     .then((details) => {
       res.send(details.data);
     })
@@ -46,7 +57,12 @@ app.get('/:listingID/reviews', (req, res) => {
 });
 
 app.get('/:propertyId/averageReviewsRating', (req, res) => {
-  axios.get(`http://3.101.105.128:3006/${req.params.propertyId}/averageReviewsRating/`)
+
+  // jay url
+  var tempUrl = `http://54.215.44.35:80/${req.params.propertyId}/averageReviewsRating/`
+  var originalUrl = `http://3.101.105.128:3006/${req.params.propertyId}/averageReviewsRating/`
+
+  axios.get(tempUrl)
     .then((details) => {
       res.send(details.data);
     })
@@ -56,6 +72,11 @@ app.get('/:propertyId/averageReviewsRating', (req, res) => {
 });
 
 app.get('/photos/:propertyId', (req, res) => {
+
+
+  var tempUrl = ``
+  var originalUrl = `http://52.53.176.39:3002/photos/${req.params.propertyId}`
+
   axios.get(`http://52.53.176.39:3002/photos/${req.params.propertyId}`)
     .then((details) => {
       res.send(details.data);
@@ -66,7 +87,13 @@ app.get('/photos/:propertyId', (req, res) => {
 });
 
 app.get('/:listingID/host', (req, res) => {
-  axios.get(`http://13.57.41.115:3007/${req.params.listingID}/host`)
+
+  // vinay url
+
+  var tempUrl = `http://http://3.129.55.10/${req.params.listingID}/host`
+  var originalUrl = `http://13.57.41.115:3007/${req.params.listingID}/host`
+
+  axios.get(tempUrl)
     .then((host) => {
       res.send(host.data);
     }).catch((error) => {
