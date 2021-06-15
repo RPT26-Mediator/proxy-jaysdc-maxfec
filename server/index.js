@@ -5,11 +5,15 @@ const app = express();
 const port = 3000;
 const newRelic = require('newrelic');
 
-app.get('/', (req, res) => {
-  res.sendStatus(200);
-});
+//app.get('/', (req, res) => {
+//  res.sendStatus(200);
+//});
+app.get('/loaderio-e563c336e1acaa6bdd73a425e558c600.txt', (req, res) => {
+  res.send('loaderio-e563c336e1acaa6bdd73a425e558c600');
+})
 
 app.use('/:propertyId', express.static(path.join(__dirname, '../public')));
+
 
 app.get('/details/:propertyId', (req, res) => {
   axios.get(`http://3.142.136.159/details/${req.params.propertyId}`)
