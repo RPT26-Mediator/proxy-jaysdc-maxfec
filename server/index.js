@@ -10,6 +10,24 @@ app.get('/', (req, res) => {
 });
 
 app.use('/:propertyId', express.static(path.join(__dirname, '../public')));
+// app.use('/', express.static(path.join(__dirname, './lib')));
+
+
+const clientBundles = './services';
+const serverBundles = './templates/services';
+const serviceConfig = require('./service-config.json');
+
+const services = require('./loader.js')(clientBundles, serverBundles, serviceConfig);
+
+const React = require('react');
+const ReactDom = require('react-dom/server');
+const Layout = require('./templates/layout');
+const App = require('./templates/app');
+const Scripts = require('./templates/scripts');
+
+
+
+
 
 app.get('/details/:propertyId', (req, res) => {
   axios.get(`http://3.142.136.159/details/${req.params.propertyId}`)
@@ -32,7 +50,7 @@ app.get('/checkoutInformation/:propertyId', (req, res) => {
 });
 
 app.get('/:listingID/reviews', (req, res) => {
-  axios.get(`http://localhost:3006/${req.params.listingID}/reviews`)
+  axios.get(`http://localhost:3016/${req.params.listingID}/reviews`)
     .then((details) => {
       res.send(details.data);
     })
@@ -42,7 +60,7 @@ app.get('/:listingID/reviews', (req, res) => {
 });
 
 app.get('/:propertyId/averageReviewsRating', (req, res) => {
-  axios.get(`http://3.101.105.128:3006/${req.params.propertyId}/averageReviewsRating/`)
+  axios.get(`http://3.101.105.128:3016/${req.params.propertyId}/averageReviewsRating/`)
     .then((details) => {
       res.send(details.data);
     })
