@@ -3,11 +3,14 @@ import http from "k6/http";
 
 export const options = {
   stages: [
-    // { duration: "1m", target: 150 },
-    // { duration: "1m", target: 250 },
-    // { duration: "1m", target: 500 },
-    { duration: "1m", target: 10 },
-    // { duration: "1m", target: 1500 },
+    { duration: "20s", target: 800},
+    { duration: "20s", target: 900},
+    { duration: "20s", target: 1000},
+    { duration: "20s", target: 1100},
+    { duration: "20s", target: 1200},
+    { duration: "20s", target: 1300},
+
+
   ],
   ext: {
     loadimpact: {
@@ -20,7 +23,7 @@ export const options = {
 
 export default function main() {
   let response;
-  response = http.get("http://52.53.225.72:3000/testDb");
+  response = http.get("http://13.56.184.144:3000/testDb");
   // Automatically added sleep
   sleep(1);
 }

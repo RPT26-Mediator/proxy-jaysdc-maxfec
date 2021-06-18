@@ -14,6 +14,8 @@
     "gage-k6": "k6 run gage-k6scipt.js --out csv=gage-k6-test.csv",
     "jay-k6": "k6 run jay-k6script.js  --out csv=jay-k6-test.csv",
     "docker:run": "docker run -d -p 3000:3000 --name proxy maxmilpro/proxy",
+    "start-prod": "pm2 start server/index.js",
+    "stop-prod": "pm2 stop server/index.js",
     "ssh": "ssh -i '~/Downloads/proxy.pem' ec2-user@ec2-18-222-131-36.us-east-2.compute.amazonaws.com"
   },
   "dependencies": {
